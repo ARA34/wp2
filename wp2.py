@@ -23,13 +23,17 @@ def main():
     output_path = Path(CURRENT/output_file)
     key = sys.argv[4]
 
+    num = 0
+
     if command == "-e":
         # encrypt: python3 extra.py -e original_text.txt encrypted_text.txt 5
         # input: string from input file
         # ouput: string encrypt string into output file
         original_msg = get_info(input_path)
-        e_message = encrypt(original_msg, int(key))
+        e_message = encrypt(original_msg, int(key))[0]
         store_info(output_path, e_message)
+        num = e_message[1]
+
     elif command == "-d":
         # decrypt: python3 extra.py -d encrypted_text.txt decrypted_text.txt
         # input: string encrypted from input file
@@ -37,7 +41,7 @@ def main():
 
         # TODO LATER
         encrypted_msg = get_info(input_path)
-        d_message = decrypt(encrypted_msg, key)
+        d_message = decrypt(encrypted_msg, int(num))
         store_info(output_path, d_message)
     else:
         print("Wrong input")
