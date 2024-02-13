@@ -64,8 +64,9 @@ def convert_str_to_matrix(matrix_str: str, key: int) -> list:
         output_m.append(n_matrix_str[:key])
         n_matrix_str = n_matrix_str[key:]
     rem = n_matrix_str
+    # adding extras
     for s in range(key - len(rem)):
-        n_matrix_str += "_"
+        n_matrix_str += " "
     output_m.append(n_matrix_str)
 
     for sect in range(len(output_m)):
