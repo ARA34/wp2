@@ -6,7 +6,7 @@ def get_info(dir: Path):
     if not dir.exists():
         print("Dir does not exist")
     else:
-        return dir.read_text()
+        return dir.read_text().strip()
     
 def store_info(dir: Path, info:str):
     if not dir.exists():
